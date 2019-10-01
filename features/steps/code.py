@@ -19,3 +19,7 @@ def click_order_icon(context):
 def verify_result(context):
     context.driver.find_element(*RESULT)
 
+
+
+
+
