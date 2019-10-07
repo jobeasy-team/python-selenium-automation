@@ -1,9 +1,6 @@
-# Created by Svetlana at 4/4/19
-Feature: Test Scenarios for Search functionality
+# Created by vinny at 10/7/2019
+Feature: #Enter feature name here
+  # Enter feature description here
 
-  Scenario: User can search for a product
-    Given Open Google page
-    When Input Belt into search field
-    And Click on search icon
-    Then Product results for Belt are shown
-    And First result contains Belt
+  Scenario: # Enter scenario name here
+    # Enter steps here
