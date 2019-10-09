@@ -1,0 +1,10 @@
+Amazon: search by CSS selector $$("div a.a-link-nav-icon")
+Your name: search by ID = 'ap_customer_name'
+Your e-mail: search by ID = "ap_email"
+Your password: search by Id = 'ap_password'
+Create your Amazon account: search by ID = "continue"
+Re-enter Password:search by ID = 'ap_password_check'
+Create Account: search by CSS Selector = $$("div h1.a-spacing-small")
+Sign-in: by CSS Celector =$$("div a.a-link-emphasis")
+Condition of use: = $x("//a[contains(@href,'condition_of_use')]")
+Privacy Notice = $x("//a[contains(@href,'privacy notice')]")
