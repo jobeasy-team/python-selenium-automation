@@ -1,6 +1,8 @@
 from behave import given, when, then
 from selenium.webdriver.common.by import By
 
+ORDERS_LINK = (By.CSS_SELECTOR, "a#nav-orders span.nav-line-2")
+
 
 @given('Open amazon page')
 def open_amazon_page(context):
@@ -18,28 +20,15 @@ def input_cancel_order(context):
     search.send_keys('Cancel orders')
 
 
-@then('Click go button')
-def click_go(context):
-    context.driver.find_element(By.XPATH,"//input[@class = 'a-button-input']").click()
+@when('Input Dress into search field')
+def search_dress(context):
+    context.driver.find_element(By.ID, 'twotabsearchtextbox').send_keys('dress')
 
 
-@then('Verify cancel items or orders text is present')
-def verify_result(context):
-    result_text = context.driver.find_element(By.XPATH, "//div[@class='help-content']/h1").text
-    assert "cancel orders" in result_text, f"Expected cancel orders or items in text, but got{result_text}"
+@when('Click on search icon')
+def click_search(context):
+    context.driver.find_element(By.CSS_SELECTOR, "input.nav-input[type='submit']").click()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@when('Click on orders button')
+def click_orders_link(context):
+    context.driver.find_element(*ORDERS_LINK).click()

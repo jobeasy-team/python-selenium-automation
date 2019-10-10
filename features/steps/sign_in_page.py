@@ -1,7 +1,7 @@
 from behave import then
 from selenium.webdriver.common.by import By
 
-EMAIL_FIELD = By.CSS_SELECTOR, "input[type='email']
+EMAIL_FIELD = (By.CSS_SELECTOR, "input[type='email']")  # tuple
 
 @then('Verify Sign-in page is opened')
 def verify_signin_opened(context):

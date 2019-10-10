@@ -3,11 +3,6 @@ from selenium.webdriver.common.by import By
 from time import sleep
 
 
-@given('Open amazon page')
-def open_amazon_page(context):
-    context.driver.get('https://www.amazon.com/')
-
-
 @when('Click on shopping cart button')
 def click_on_shopping_cart(context):
     context.driver.find_element(By.ID, 'nav-cart').click()
