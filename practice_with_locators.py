@@ -18,6 +18,4 @@
 #giprivacy_notice_link = driver.find_element(By.LINK_TEXT, 'Privacy Notice')
 
 
-g
-
 
