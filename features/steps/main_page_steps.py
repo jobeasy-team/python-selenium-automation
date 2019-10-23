@@ -64,15 +64,18 @@ def click_customer_service_link(context):
 
 @then('Verify cart has {expected_item_count} item')
 def verify_item_count(context, expected_item_count):
-    sleep(1.5)
-    actual_items = context.driver.find_element(By.ID, 'nav-cart-count').text
-    assert actual_items == expected_item_count, f'Expected{expected_item_count}, but got{actual_items}'
+    actual_item_count = context.driver.find_element(By.ID, 'nav-cart-count').text
+    if int(actual_item_count) != 1:
+        print(f"Cart has {actual_item_count} items")
+    else:
+        print(f"Cart has {actual_item_count} item")
+    assert actual_item_count == expected_item_count, f'Expected{expected_item_count}, but got{actual_items}'
 
 
 @then("{expected_number_of_items} menu items are present")
 def verify_number_of_items(context, expected_number_of_items):
     sleep(1)
-    print(len(context.driver.find_elements(*AMAZON_MUSIC_MENU_ITEM_RESULTS)))
-    assert len(context.driver.find_elements(*AMAZON_MUSIC_MENU_ITEM_RESULTS)) == int(expected_number_of_items), \
+    actual_number_of_items = len(context.driver.find_elements(*AMAZON_MUSIC_MENU_ITEM_RESULTS))
+    assert actual_number_of_items == int(expected_number_of_items), \
         print(f"Expected {expected_number_of_items} items, "
-              f"but got {len(context.driver.find_elements(*AMAZON_MUSIC_MENU_ITEM_RESULTS))}")
+              f"but got {actual_number_of_items}")

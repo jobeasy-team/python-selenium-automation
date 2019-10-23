@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 from behave import when, then
+from time import sleep
 
 TOOLBAR_TEXT_BOLD = (By.CSS_SELECTOR, "h1 span.a-text-bold")
 PRODUCT_RESULT = (By.XPATH,
@@ -10,6 +11,7 @@ PRODUCT_RESULT = (By.XPATH,
 @when('Open the first product search result')
 def click_first_result(context):
     context.driver.find_element(*PRODUCT_RESULT).click()
+    sleep(1.5)
 
 
 @then('Search results for {product} is shown')
