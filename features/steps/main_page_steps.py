@@ -7,6 +7,9 @@ SEARCH_INPUT = (By.ID, 'twotabsearchtextbox')
 SEARCH_ICON = (By.CSS_SELECTOR, "input.nav-input[type='submit']")
 CUST_SERV_LINK = (By.LINK_TEXT, 'Customer Service')
 SHOPPING_CART = (By.ID, 'nav-cart-count')
+HAM_MENU = (By.ID, 'nav-hamburger-menu')
+AMAZON_MUSIC_MENU_ITEM = (By.XPATH, "//ul[contains(@class, 'hmenu-visible')]//div[contains(text(),'Amazon Music')]")
+AMAZON_MUSIC_MENU_ITEM_RESULTS = (By.CSS_SELECTOR, "ul.hmenu-visible a:not(.hmenu-back-button)")
 
 
 @given('Open Amazon page')
@@ -26,6 +29,17 @@ def open_max_amazon(context):
 def click_cart_icon(context):
     context.driver.find_element(*SHOPPING_CART).click()
     sleep(1)
+
+
+@when('Click on hamburger menu')
+def click_ham_menu(context):
+    context.driver.find_element(*HAM_MENU).click()
+
+
+@when('Click on Amazon Music menu item')
+def click_amazon_music(context):
+    context.driver.find_element(*AMAZON_MUSIC_MENU_ITEM).click()
+    sleep(1.5)
 
 
 @when('Click on Orders link')
@@ -53,3 +67,12 @@ def verify_item_count(context, expected_item_count):
     sleep(1.5)
     actual_items = context.driver.find_element(By.ID, 'nav-cart-count').text
     assert actual_items == expected_item_count, f'Expected{expected_item_count}, but got{actual_items}'
+
+
+@then("{expected_number_of_items} menu items are present")
+def verify_number_of_items(context, expected_number_of_items):
+    sleep(1)
+    print(len(context.driver.find_elements(*AMAZON_MUSIC_MENU_ITEM_RESULTS)))
+    assert len(context.driver.find_elements(*AMAZON_MUSIC_MENU_ITEM_RESULTS)) == int(expected_number_of_items), \
+        print(f"Expected {expected_number_of_items} items, "
+              f"but got {len(context.driver.find_elements(*AMAZON_MUSIC_MENU_ITEM_RESULTS))}")
