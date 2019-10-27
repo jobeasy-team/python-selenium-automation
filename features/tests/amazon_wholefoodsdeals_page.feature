@@ -5,6 +5,6 @@ Feature: Amazon Wholefoodsdeals page functionality
   listed under each product name
 
   Scenario: User opens Amazon wholefoodsdeals page to compare Prime benefits to regular price
-  listed under each product name
+  listed under each product name, and verify title of product is listed under each item
     Given User opens Amazon wholefoodsdeals page and maximizes window
-    Then Verifies every product listed with Prime benefit has product name and Regular price
+    Then Verifies every product listed with Prime benefit has Regular price and Name
