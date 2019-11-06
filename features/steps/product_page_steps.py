@@ -62,6 +62,7 @@ def verify_colours(context):
                                                      f"but got {actual_colour}"""""
     for colour in colour_web_elements:
         colour.click()
+        sleep(3)
         actual_colour = context.driver.find_element(*SELECTED_COLOUR).text
         print(actual_colour)
 
