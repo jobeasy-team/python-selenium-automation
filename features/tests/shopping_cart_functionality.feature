@@ -3,7 +3,7 @@ Feature: Test for Amazon Shopping Cart functionality
   # Enter feature description here
 
   Scenario: User can verify that the shopping cart is empty
-    Given Open Amazon page and maximize window
+    Given Open Amazon page
     When Click on Shopping Cart icon
     Then Verify that Your Shopping Cart is empty text is presented
 
@@ -13,16 +13,16 @@ Feature: Test for Amazon Shopping Cart functionality
    gets more familiar with product details, and adds it into shopping cart. User checks the shopping cart
    to make sure the product was successfully added.
 
-     Given Open Amazon page and maximize window
+     Given Open Amazon page
      When Search for cat window perch
      When Open the first product search result
      And Click Add to cart button
-     #Then Verify cart has 1 item
-     Then Verify 1 item in the cart
+     Then Verify cart has 1 item
+     #Then Verify 1 item in the cart
 
    Scenario: User can add another chosen product into the cart
 
-      Given Open Amazon page and maximize window
+      Given Open Amazon page
       When Search for printer paper
       And Open the first product search result
       And Click Add to cart button

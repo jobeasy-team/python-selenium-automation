@@ -18,15 +18,16 @@ CART_ITEM_COUNT = (By.XPATH, "//span[@id = 'nav-cart-count']")
 
 @given('Open Amazon page')
 def open_amazon(context):
-    context.driver.get('https://www.amazon.com')
-    sleep(1)
+    # context.driver.get('https://www.amazon.com')
+    # sleep(1)
+    context.app.main_page.open_page()
 
 
-@given('Open Amazon page and maximize window')
-def open_max_amazon(context):
-    context.driver.get('https://www.amazon.com')
-    context.driver.maximize_window()
-    sleep(1)
+# @given('Open Amazon page and maximize window')
+# def open_max_amazon(context):
+#     context.driver.get('https://www.amazon.com')
+#     context.driver.maximize_window()
+#     sleep(1)
 
 
 # StaleElementReferenceException explained:
@@ -35,39 +36,40 @@ def open_max_amazon(context):
 # make sure to preform actions on element right before you communicate with the element
 @when('Click on Shopping Cart icon')
 def click_cart_icon(context):
-    cart_icon = context.driver.find_element(*SHOPPING_CART)
-    print(cart_icon)
-    context.driver.refresh()
-    cart_icon = context.driver.find_element(*SHOPPING_CART)
-    print(cart_icon)
-    cart_icon.click()
-    sleep(1)
+    # cart_icon = context.driver.find_element(*SHOPPING_CART)
+    # print(cart_icon)
+    # context.driver.refresh()
+    # cart_icon = context.driver.find_element(*SHOPPING_CART)
+    # print(cart_icon)
+    # cart_icon.click()
+    # sleep(1)
+    context.app.main_page.click_shopping_cart()
 
 
 @when('Click on hamburger menu')
 def click_ham_menu(context):
-    context.driver.find_element(*HAM_MENU).click()
+    # context.driver.find_element(*HAM_MENU).click()
+    context.app.main_page.click_ham_menu()
 
 
 @when('Click on Amazon Music menu item')
 def click_amazon_music(context):
-    context.driver.find_element(*AMAZON_MUSIC_MENU_ITEM).click()
-    sleep(1.5)
+    context.app.side_menu.click_amazon_music()
 
 
 @when('Click on Orders link')
 def click_orders_link(context):
-    context.driver.find_element(*ORDERS_LINK).click()
-    sleep(1)
+    context.app.main_page.click_orders_link()
 
 
 @when('Search for {product}')
 def search_product(context, product):
-    search_field = context.driver.find_element(*SEARCH_INPUT)
-    search_field.clear()
-    search_field.send_keys(product)
-    sleep(1.5)
-    context.driver.find_element(*SEARCH_ICON).click()
+    # search_field = context.driver.find_element(*SEARCH_INPUT)
+    # search_field.clear()
+    # search_field.send_keys(product)
+    # sleep(1.5)
+    # context.driver.find_element(*SEARCH_ICON).click()
+    context.app.main_page.search_for_keyword(product)
 
 
 @when('Click on Customer Service link')
@@ -85,13 +87,19 @@ def verify_item_count(context, expected_item_count):
     assert actual_item_count == expected_item_count, f'Expected{expected_item_count}, but got{actual_item_count}'
 
 
-@then("{expected_number_of_items} menu items are present")
-def verify_number_of_items(context, expected_number_of_items):
-    sleep(1)
-    actual_number_of_items = len(context.driver.find_elements(*AMAZON_MUSIC_MENU_ITEM_RESULTS))
-    assert actual_number_of_items == int(expected_number_of_items), \
-        print(f"Expected {expected_number_of_items} items, "
-              f"but got {actual_number_of_items}")
+def expected_number_of_items(args):
+    pass
+
+
+@then("{expected_item_count} menu items are present")
+def verify_amount_of_items(context, expected_item_count):
+    # sleep(1)
+    # actual_item_count = len(context.driver.find_elements(*AMAZON_MUSIC_MENU_ITEM_RESULTS))
+    # assert actual_item_count == int(expected_item_count)
+    # print(f"Expected {expected_item_count} items, "
+    #             f"but got {actual_item_count}")
+    expected_item_count = int(expected_item_count)
+    context.app.side_menu.verify_amount_of_items(expected_item_count)
 
 
 # =========================SignIn_Tooltip=========================================================
@@ -116,6 +124,7 @@ def verify_signin_tooltip_not_clickable(context):
     context.driver.wait.until_not(
         EC.element_to_be_clickable(SIGN_IN_TOOLTIP)
     )
+
 
 # ======================Deals_under_$25===========================================================
 

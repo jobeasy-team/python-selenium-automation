@@ -6,7 +6,8 @@ EMAIL_FIELD = (By.CSS_SELECTOR, "input[type='email']")
 
 
 @then('Verify Sign in page opened')
-def verify_signin__open(context):
-    context.driver.find_element(*EMAIL_FIELD)
-    assert 'https://www.amazon.com/ap/signin' in context.driver.current_url
-    sleep(2)
+def verify_sign_in_open(context):
+    # context.app.sign_in_page.open_page(self.url = "/ap/signin")
+    # # assert 'https://www.amazon.com/ap/signin' in context.driver.current_url
+    # sleep(2)
+    context.app.sign_in_page.verify_url('/ap/signin')

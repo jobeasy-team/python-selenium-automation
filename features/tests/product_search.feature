@@ -5,10 +5,10 @@ Feature: Test for Amazon Search functionality
   Scenario: User can search for a product
     Given Open Amazon page
     When Search for shoes
-    Then Search results for shoes is shown
+    Then Search result for shoes is shown
 
   Scenario: User can open and close Today's deals under $25
-    Given Open Amazon page and maximize window
+    Given Open Amazon page
     When Store original windows
     When Click to open deals under 25 dollars
     And Switch to the newly opened window
@@ -18,7 +18,7 @@ Feature: Test for Amazon Search functionality
 
   Scenario: User can open and close Today's deals under $25, add product into cart,
   refresh main page and verify product is in the cart
-    Given Open Amazon page and maximize window
+    Given Open Amazon page
     When Store original windows
     And Click to open deals under 25 dollars
     And Switch to the newly opened window

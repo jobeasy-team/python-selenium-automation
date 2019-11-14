@@ -5,10 +5,11 @@ CART_SUBTOTAL_BOX = (By.CSS_SELECTOR, "div#huc-v2-order-row-inner div#hlb-subcar
 SHOP_CART = (By.ID, "sc-retail-cart-container")
 
 
-@then('Verify that Your Shopping Cart is empty text is presented')
-def verify_shop_cart(context):
-    cart_results = context.driver.find_element(*SHOP_CART).text
-    assert 'Your Shopping Cart is empty' in cart_results
+@then('Verify that {expected_text} text is presented')
+def verify_shop_cart(context, expected_text):
+    # cart_results = context.driver.find_element(*SHOP_CART).text
+    # assert 'Your Shopping Cart is empty' in cart_results
+    context.app.shopping_cart_page.verify_cart_empty(expected_text)
 
 
 @then('Verify {number_of_items} in the cart')
