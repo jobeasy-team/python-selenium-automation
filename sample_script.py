@@ -15,11 +15,6 @@ search.send_keys('Dress')
 # wait for 4 sec
 sleep(4)
 
-meowmeowmeow
-meowmeowmeow
-meowmeowmeow
-hkjvb.knb/n/.n/n/n
-vbnfbvnb
 
 # click search
 driver.find_element(By.NAME, 'btnK').click()

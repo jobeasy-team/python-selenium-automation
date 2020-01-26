@@ -6,3 +6,4 @@ driver.get('https://www.amazon.com/ap/signin?_encoding=UTF8&ignoreAuthState=1&op
 from selenium.webdriver.common.by import By
 
 driver.find_element(By.XPATH,"//input[@id='ap_email']").send_keys("Fedotest")
+

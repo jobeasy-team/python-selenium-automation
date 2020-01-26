@@ -6,7 +6,5 @@ driver.get('https://www.amazon.com/ap/signin?_encoding=UTF8&ignoreAuthState=1&op
 from selenium.webdriver.common.by import By
 
 
-driver.find_element(By.XPATH, "//div[@id='authportal-main-section']//a[@class='a-expander-header a-declarative a-expander-inline-header a-link-expander']").click()
-
-driver.find_element(By.XPATH,"//a[contains(text(),'Forgot your password?')]").click()
+driver.find_element(By.XPATH, "//a[@class='a-button-text']").click()
 
