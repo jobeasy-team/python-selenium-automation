@@ -5,4 +5,4 @@ def exponentOfANumber(number, exponent):
   if exponent == 0: return 1
   if exponent == 1: return number
 
-  return number * exponentOfANumber(number, exponent-1) 
+  return number * exponentOfANumber(number, exponent-1)
