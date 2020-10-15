@@ -12,7 +12,7 @@ driver.implicitly_wait(5)
 driver.get(' https://www.amazon.com/gp/help/customer/display.html ')
 
 input_field = driver.find_element(By.ID, 'helpsearch').send_keys('Cancel order',Keys.ENTER)
-
+sleep(4)
 result = driver.find_element(By.XPATH, "//h1[text()='Cancel Items or Orders']")
 assert result.text == "Cancel Items or Orders", f'Error.Expected Cancel Items or Orders, but got(result.text)'
 

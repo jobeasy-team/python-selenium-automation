@@ -1,0 +1,26 @@
+#Locators1
+#Amazon Find the most optimal locators for Create Account (Registration) page elements:
+
+#Amazon logo
+find_element(By.xpath-$x("//i[@class = 'a-icon a-icon-logo']")
+#create account
+find_element(By.xpath-$x("//h1[@class = 'a-spacing-small']")
+#your name
+find_element(By.id-$x("//input[@id='ap_customer_name']")
+#Email
+find_element(By.id-$x("//input[@id='ap_email']")
+#password
+find_element(By.id-$x("//input[@id='ap_password']")
+#password must be atleast 6 character
+find_element(By.text-$x(//div[text='
+  Passwords must be at least 6 characters']")
+#Re-enter password
+find_element(By.id-$x("//input[@id='ap_password_check']")
+#create your amazon account
+find_element(By.id-$x("//input[@id='continue']")
+#conditions of use
+find_element(By.css selector-$$("div[@id='legalTextRow']/a[contains(@href,'condition_of_use')]")
+#privacy notice
+find_element(By.css selector-$$("a.[href=Privacy Notice]")
+
+
