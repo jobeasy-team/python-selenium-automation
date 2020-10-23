@@ -8,7 +8,6 @@ def browser_init(context):
     context.driver = webdriver.Chrome(executable_path='C:\Vallikannu\Learning\Automation\Jobeasy-team\python-selenium-automation\chromedriver.exe')
     # context.browser = webdriver.Safari()
     # context.browser = webdriver.Firefox()
-
     context.driver.maximize_window()
     context.driver.implicitly_wait(4)
 
@@ -16,7 +15,6 @@ def browser_init(context):
 def before_scenario(context, scenario):
     print('\nStarted scenario: ', scenario.name)
     browser_init(context)
-
 
 def before_step(context, step):
     print('\nStarted step: ', step)

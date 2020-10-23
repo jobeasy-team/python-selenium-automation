@@ -10,8 +10,6 @@ SEARCH_RESULT = (By.XPATH, "//span[@class='a-color-state a-text-bold']")
 def open_amazon(context):
     context.driver.get('https://www.amazon.com/')
 
-
-
 @when('Input Dress into Amazon search field')
 def input_search_word(context):
     context.find_element(*SEARCH_INPUT).send_keys('Dress')

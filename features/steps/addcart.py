@@ -26,14 +26,9 @@ def first_product(context):
 
 @Then('Add product in cart')
 def add_cart(context):
-    add_cart = context.driver.find_element(By.ID, "//input[@id = 'add-to-cart-button']")
+    add_cart = context.driver.find_element(By.ID, 'add-to-cart-button')
     add_cart.click()
 
 @Then('Verify the product in cart')
 def verify_cart(context):
-    verify_cart = context.driver.find_element(By.XPATH, ("//span[@id='nav-cart-count']")
-
-
-
-
-
+    verify_cart = context.driver.find_element(By.XPATH, "//span[@id='nav-cart-count']")
