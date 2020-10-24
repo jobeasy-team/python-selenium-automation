@@ -16,7 +16,9 @@ def before_scenario(context, scenario):
     print('\nStarted scenario: ', scenario.name)
     browser_init(context)
 
+
 def before_step(context, step):
+    print("I am in step")
     print('\nStarted step: ', step)
 
 
