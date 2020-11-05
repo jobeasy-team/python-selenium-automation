@@ -1,6 +1,6 @@
 from behave import given, then
 from selenium.webdriver.common.by import By
-
+from time import sleep
 
 @given('Open amazon bestsellers')
 def open_page(context):
@@ -10,4 +10,5 @@ def open_page(context):
 @then('Verify 5 links')
 def verify_links(context):
     link = len(context.driver.find_elements(By.CSS_SELECTOR, "a[href*='ref=zg_bs_tab']"))
+    sleep(5)
     assert link == 5, f'Error. Expected 5, but got {link}'
