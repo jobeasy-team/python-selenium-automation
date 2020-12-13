@@ -21,7 +21,7 @@ def click_search_icon(context):
 
 @Then('Select first product to cart')
 def first_product(context):
-    first_product = context.driver.find_element(By.XPATH, "//img[@src='https://m.media-amazon.com/images/I/812C5q3i5+L._AC_UL320_.jpg']")
+    first_product = context.driver.find_element(By.XPATH, "//img[@src='https://m.media-amazon.com/images/I/91jOKExD28L._AC_UL320_.jpg']")
     first_product.click()
 
 @Then('Add product in cart')

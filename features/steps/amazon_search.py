@@ -14,7 +14,7 @@ def open_amazon(context):
 
 @when('Input Dress into Amazon search field')
 def input_search_word(context):
-    context.find_element(*SEARCH_INPUT).send_keys('Dress')
+    context.driver.find_element(*SEARCH_INPUT).send_keys('Dress')
 
 
 @when('Click on Amazon search icon')
