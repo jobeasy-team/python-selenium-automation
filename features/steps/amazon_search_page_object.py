@@ -23,7 +23,8 @@ def input_search_word(context):
 def click_search_icon(context):
     # search_icon = context.driver.find_element(*SEARCH_ICON)
     # search_icon.click()
-    context.app.main_page.click_search_icon()
+    # context.app.main_page.click_search_icon()
+    context.app.main_page.click_item(*SEARCH_ICON)
 
 
 @then('search result Dress is shown1')
