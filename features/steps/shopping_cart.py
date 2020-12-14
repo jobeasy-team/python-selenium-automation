@@ -21,6 +21,4 @@ def click_cart_icon(context):
 
 @then('Verify Your Shopping Cart is empty text present shopping')
 def verify_cart_text(context):
-    # page = context.driver.find_element(*FOUND_TEXT)
-    # assert page.text == 'Your Amazon Cart is empty', f'Got Error Expected Your Amazon Cart is empty, but got {page.text}'
     context.app.shopping_empty_page.verify_cart_empty('Your Amazon Cart is empty')
