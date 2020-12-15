@@ -20,3 +20,8 @@ class Page:
     def verify_result_text(self, verify_text, *locator):
         result = self.driver.find_element(*locator)
         assert result.text == verify_text, f'Got Error. Expected {verify_text}, but got {result.text}'
+
+    def verify_link_count(self, link_count, *locator):
+        link = self.driver.find_elements(*locator)
+        print(*locator)
+        assert len(link) == link_count, f'Error. Expected {link_count}, but got {link}'
