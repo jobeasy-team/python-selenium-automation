@@ -1,0 +1,3 @@
+# -- RERUN: 1 failing scenarios during last test run.
+features/tests/search_tests.feature:14
+
