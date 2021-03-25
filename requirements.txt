@@ -1,3 +1,4 @@
 allure-behave
 behave
+requests
 selenium

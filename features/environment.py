@@ -4,6 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.support.events import EventFiringWebDriver
 
 from app.application import Application
+from reporting.browserstack_api import BSSession
 from support.get_env import get_bs_key, get_bs_user
 from support.logger import logger, MyListener
 
@@ -47,6 +48,11 @@ def after_step(context, step):
 
 
 def after_scenario(context, feature):
+    bs_session = BSSession(get_bs_user(), get_bs_key(), context.driver.session_id)
+    bs_link = bs_session.get_browser_url()
+    #  If run via BS, attach link to a remote BS session to the report
+    attach(bs_link, name='BrowserStack Session', attachment_type=AttachmentType.URI_LIST)
+
     context.driver.delete_all_cookies()
     context.driver.quit()
     logger.info('Scenario finished.\n\n')

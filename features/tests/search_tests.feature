@@ -11,7 +11,7 @@ Feature: Wiki search
     |Python (programming language)  |
     |Java (programming language)    |
     |Selenium (software)            |
-    |List of HTTP Status Codes      |
+    |List of HTTP status codes      |
 
   Scenario: Search can open No Search Results
     Given Open main page
