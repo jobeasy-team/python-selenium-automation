@@ -3,7 +3,7 @@ import requests
 from support.logger import logger
 
 
-class BSSession(object):
+class BSSession:
     session = 'https://{}:{}@api-cloud.browserstack.com/automate/sessions/{}.json'
 
     def __init__(self, bs_user, bs_key, session_id):
