@@ -1,4 +1,4 @@
-# Jobeasy Test Automation repository
+# Careerist Test Automation repository
 
 written in
 ### Python 3, Behave
