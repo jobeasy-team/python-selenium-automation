@@ -1,11 +1,11 @@
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from webdriver_manager.chrome import ChromeDriverManager
 
 # init driver
-driver = webdriver.Chrome()
+driver = webdriver.Chrome(ChromeDriverManager().install())
 driver.maximize_window()
-
 # open the url
 driver.get('https://www.google.com/')
 
