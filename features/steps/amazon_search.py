@@ -7,11 +7,6 @@ def open_amazon(context):
     context.driver.get('https://www.amazon.com/')
 
 
-@when('Input Table in search field')
-def search_amazon(context):
-    context.driver.find_element(By.ID, 'twotabsearchtextbox').send_keys('Table')
-
-
 @when('Click on Amazon search icon')
 def click_search(context):
     context.driver.find_element(By.ID, 'nav-search-submit-button').click()
@@ -26,4 +21,9 @@ def verify_search_worked(context):
 
 @when('Click on the first product')
 def click_first_product(context):
-    context.driver.find_element(By.XPATH, '')
+    context.driver.find_element(By.XPATH, '//div[@data-component-type="s-search-result"]//a[.//span[@class="a-price"]]').click()
+
+
+@when('Click on Add to Cart button')
+def click_add_to_cart_btn(context):
+    context.driver.find_element(By.ID, 'add-to-cart-button').click()
