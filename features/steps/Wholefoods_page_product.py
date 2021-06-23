@@ -1,18 +1,24 @@
 from selenium.webdriver.common.by import By
 from behave import given, when, then
 
+BEST_DEALS_ITEMS = (By.XPATH, "//li[@class='s-result-item' and .//span[contains(@class,'prime-price')]]/div")
+PRODUCT_NAME = (By.CSS_SELECTOR, "span.wfm-sales-item-card__product-name")
+
 @given('Open Wholefoods page')
 def open_wholefoods(context):
     context.driver.get('https://www.amazon.com/wholefoodsdeals')
 
-@then('Verify if regular appears on every product')
-def verify_product(context):
-    expected_product = ['Regular $14.99/lb', 'Regular $29.99/lb', 'Regular $2.99 - $54.99 ea', 'Regular prices vary', 'Regular $2.99-$14.99 ea']
-    regular_text = context.driver.find_elements(By. CSS_SELECTOR, "span.a-size-large.wfm-sales-item-card__prime-price.a-text-bol")
 
 
-    for i in range(len(regular_text)):
-       regular_text[i].click()
-       actual_text = context.driver.find_element(By.CSS_SELECTOR, "div.s-item-container").text
-       assert actual_text == expected_product[i], f'Error, product is {actual_text}, but expected {expected_product[i]}'
-
+@then('Verify that Wholefoods products have regular prices and names')
+def verify_best_deals(context):
+    # Let's find all the products and store them into best_deals_items
+    best_deals_items= context.driver.find_elements(*BEST_DEALS_ITEMS)
+    # Now, let's loop through all of them
+    for e in best_deals_items:
+        # and verify that every element has a test Regular in it
+        assert 'Regular' in e.text, f'Expected Regular price not found in {e.text}'
+        # and a product name
+        product_name = e.find_element(*PRODUCT_NAME).text
+        print(product_name)
+        assert product_name, f'Product name is missing'
