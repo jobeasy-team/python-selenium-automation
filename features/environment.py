@@ -2,7 +2,7 @@ from selenium import webdriver
 
 
 def browser_init(context):
-    """
+    """`
     :param context: Behave context
     """
     context.driver = webdriver.Chrome(executable_path='/Users/bkarp0518/Desktop/Automation/python-selenium-automation/chromedriver')

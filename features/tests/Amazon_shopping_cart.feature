@@ -1,6 +1,8 @@
-# Created by bkarp0518 at 6/3/21
-Feature: # Enter feature name here
-  # Enter feature description here
+# Created by bkarp0518 at 5/30/21
+Feature: Shopping Cart
 
-  Scenario: # Enter scenario name here
-    # Enter steps here
+
+  Scenario: User can verify shopping cart is empty
+    Given Open Amazon homepage
+    When Click on Shopping cart icon
+    Then Verify Shopping Cart is empty

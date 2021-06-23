@@ -9,7 +9,7 @@ def open_amazon(context):
 
 @when('Input Table in search field')
 def search_amazon(context):
-    context.driver.find_element(By.ID, 'twotabsearchtextbox').send_keys('Table')
+    context.driver.find_element(By.ID, 'twotabsearchtextbox').send_keys('Table', Keys.RETURN)
 
 
 @when('Click On Amazon search icon')
@@ -19,7 +19,7 @@ def click_search(context):
 
 @then('Verify search worked')
 def verify_search_worked(context):
-    actual_result = context.driver.find_element(By.XPATH,(By.XPATH, "//span[@class='a-color-state a-text-bold']").text
+    actual_result = context.driver.find_element(By.XPATH, "//span[@class='a-color-state a-text-bold']").text
     expected_result = '"Table"'
     assert expected_result == actual_result, f'Expected {expected_result}, but got {actual_result}'
 

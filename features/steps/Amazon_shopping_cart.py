@@ -11,7 +11,7 @@ def click_icon(context):
 
 @then('Verify Shopping cart is empty')
 def verify_empty_cart(context):
-    actual_result = context.driver.find_element(By.XPATH, "//h2[contains(@class,'sc-your-amazon-cart-is-empty')").text
-    expected_result = '"Your Amazon Cart is empty"'
+    actual_result = context.driver.find_element(By.CSS_SELECTOR, "h2.sc-your-amazon-cart-is-empty").text
+    expected_result = 'Your Amazon Cart is empty'
     assert expected_result == actual_result, f'Expected {expected_result}, but got {actual_result}'
 
