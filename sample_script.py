@@ -30,7 +30,7 @@ driver.wait = WebDriverWait(driver, 15)
 e = driver.find_element(By.NAME, 'btnK').click()
 
 # click search
-e.click()
+
 
 # verify
 assert 'dress' in driver.current_url.lower(), f"Expected query not in {driver.current_url.lower()}"
