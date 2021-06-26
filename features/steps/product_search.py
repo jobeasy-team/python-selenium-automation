@@ -17,13 +17,13 @@ def input_search(context, search_word):
     search = context.driver.find_element(*SEARCH_INPUT)
     search.clear()
     search.send_keys(search_word)
-    sleep(4)
+    driver.implicity_wait(4)
 
 
 @when('Click on search icon')
 def click_search_icon(context):
     context.driver.find_element(*SEARCH_SUBMIT).click()
-    sleep(1)
+    driver.implicity_wait(1)
 
 
 @then('Product results for {search_word} are shown')
