@@ -27,3 +27,13 @@ def click_first_product(context):
 @when('Click on Add to Cart button')
 def click_add_to_cart_btn(context):
     context.driver.find_element(By.ID, 'add-to-cart-button').click()
+
+
+@then('Verify user can select colors')
+def click_through_colors(context):
+    colors = context.driver.find_elements(By.CSS_SELECTOR, 'img.imgSwatch')
+    count = 0
+    for color in colors:
+        context.driver.find_element(By.CSS_SELECTOR, 'img.imgSwatch').click()
+        count += 1
+    assert len(colors) == count, f'Expected {len(colors)}, but got {count}'
