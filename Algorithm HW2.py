@@ -28,6 +28,6 @@ def unique_char(string1):
     return len(string1) == len(set1)
 
 print(unique_char('abcde'))
-print(unique_char('aabcde'))
+print(unique_char('abccdef'))
 
 
