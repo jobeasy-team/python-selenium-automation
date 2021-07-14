@@ -6,13 +6,15 @@ from selenium.webdriver.common.keys import Keys
 def click_cart(context):
     context.driver.find_element(By.ID, 'nav-cart').click()
 
-@then('Check that cart is Empty')
-def verify_empty_cart(context):
-    context.driver.find_element(By.ID, 'sc-empty-cart-message')
 
 @when('Search for {search_word}')
 def search_for_product(context, search_word):
     context.driver.find_element(By.ID, 'twotabsearchtextbox').send_keys(search_word, Keys.ENTER)
+
+@then('Check that cart is Empty')
+def verify_empty_cart(context):
+    context.driver.find_element(By.ID, 'sc-empty-cart-message')
+
 
 @then('Verify cart has {expected_count} item')
 def verify_cart_count(context, expected_count):
