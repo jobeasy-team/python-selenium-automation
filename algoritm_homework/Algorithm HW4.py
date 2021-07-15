@@ -11,11 +11,11 @@ def below_the_mean(list):
     mean = result / len(list)
     print(f'Arithmetical mean = ' + str(mean))
 
+    new_list = []
     for element in list:
-        new_list = []
         if element < mean:
             new_list.append(element)
-            print(new_list)
+    print(new_list)
 
 
 
