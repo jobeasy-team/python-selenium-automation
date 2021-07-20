@@ -4,4 +4,5 @@ from behave import given, when, then
 
 @then('Verify Sign in page opened')
 def verify_sign_in_opened(context):
-    assert 'https://www.amazon.com/ap/signin' in context.driver.current_url, f'Wrong url{context.driver.current_url}'
+#    assert 'https://www.amazon.com/ap/signin' in context.driver.current_url, f'Wrong url{context.driver.current_url}'
+    context.app.sign_in_page.verify_sign_in_opened()

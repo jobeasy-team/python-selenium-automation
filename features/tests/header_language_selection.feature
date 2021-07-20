@@ -1,6 +1,9 @@
 # Created by bkarp0518 at 7/17/21
-Feature: # Enter feature name here
+Feature: Language selection tests
   # Enter feature description here
 
-  Scenario: # Enter scenario name here
-    # Enter steps here
+  Scenario: User can see Spanish language
+    Given Open Amazon page
+    When move mouse over flag icon
+    Then Spanish language selection is visible
+
