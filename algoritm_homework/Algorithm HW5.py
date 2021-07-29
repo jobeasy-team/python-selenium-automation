@@ -30,19 +30,18 @@ D and updates the array to represent the integer D + 1.
 For example, if the input is [1, 2, 9] then you should update the array to [1, 3, 0]
 """
 
-def increment_number(arr):
-    arr[-1] += 1
-    for i in reversed(range(1, len(arr))):
-        if arr[i] != 10:
+def increment_number(list):
+    list[-1] += 1
+    for i in reversed(range(1, len(list))):
+        if list[i] != 10:
             break
-        arr[i] = 0
-        arr[i - 1] += 1
-    if arr[0] == 10:
-        arr[0] = 1
-        arr.append(0)
+        list[i] = 0
+        list[i - 1] += 1
+    if list[0] == 10:
+        list[0] = 1
+        list.append(0)
 
-    return arr
-
+    return list
 
 test_array = [9, 9, 9]
 print(test_array)
