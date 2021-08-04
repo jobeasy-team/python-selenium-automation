@@ -28,7 +28,7 @@ Example: String = “hello world”, Return {Vowels: 3, Consonants: 7}
 
 def count_chars(string1):
     string1 = string1.replace(' ', '')
-    vowel_list = ['a', 'e', 'i', 'o', 'u']
+    vowel_list = ['A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u']
     vowels = 0
     consonants = 0
     for char in string1:
