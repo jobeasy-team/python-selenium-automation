@@ -1,0 +1,14 @@
+CSS selector:
+
+amazonlog: i.a-icon.a-icon-logo
+create account: h1.a-spacing-small
+your name field: input#ap_customer_name
+email filed: #ap_email
+password field: #ap_password
+password txt:  .auth-inlined-information-message div.a-alert-content
+re-enter password txt: #ap_password_check
+re-enter password field: #ap_password_check
+create account button: #a-autoid-0
+condition of use link: a[href*=ap_register_notification_condition_of_use]
+privacy notice link: a[href*=ap_register_notification_privacy_notice]
+sign in link: a.a-link-emphasis[href*='openid.return_to=https%3A%2F%2Fwww.amazon.com']
