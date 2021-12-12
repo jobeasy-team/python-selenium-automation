@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 from behave import given, when, then
-from selenium.webdriver import Keys
+from selenium.webdriver.common.keys import Keys
 
 
 @given('Open Amazon Customer help page')

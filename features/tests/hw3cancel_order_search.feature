@@ -1,4 +1,4 @@
-# Created by vvchens at 11/30/2021
+# Created by bobo at 11/30/2021
 Feature: User can search on Amazon
   # Enter feature description here
 
