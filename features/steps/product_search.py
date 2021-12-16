@@ -21,7 +21,7 @@ def input_search(context, search_word):
 
 
 @when('Click on search icon')
-def click_search_icon(context):
+def click_search_icon(context, ):
     context.driver.find_element(*SEARCH_SUBMIT).click()
     sleep(1)
 
