@@ -8,3 +8,5 @@ Feature: Adding item into Amazon cart
     And Add item into cart
     And Click on Amazon cart
     Then Show Kurukahveci Mehmet Efendi Turkish Coffee, 17.6 Ounce (Pack of 1) in cart
+
+

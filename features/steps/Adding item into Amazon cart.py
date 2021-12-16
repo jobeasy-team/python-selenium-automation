@@ -37,7 +37,7 @@ def add_into_cart(context):
 @then('Show {search_word} in cart')
 def verify_item_in_cart_text(context, search_word):
     expected_value= context.driver.find_element(By.CSS_SELECTOR,"span.a-truncate.a-size-medium").text
-    sleep(5)
-    print(expected_value)
     assert search_word == expected_value,f'Item not matching {search_word}'
+
+
 
