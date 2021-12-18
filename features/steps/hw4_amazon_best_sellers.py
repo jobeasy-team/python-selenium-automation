@@ -27,7 +27,6 @@ def open_amazon(context):
     context.driver.get('https://www.amazon.com/')
 
 
-
 @when('Search for {search_item}')
 def search(context, search_item):
     context.driver.find_element(By.ID, "twotabsearchtextbox").send_keys(search_item)
@@ -55,6 +54,10 @@ def open_cart(context):
 
 @then('Verify cart has {number} item(s)')
 def verify_cart_item(context, number):
-    cart_item_no= context.driver.find_element(By.ID, "nav-cart-count").text
+    cart_item_no = context.driver.find_element(By.ID, "nav-cart-count").text
     assert int(cart_item_no) == int(number), f"error, real number is {cart_item_no}, not {number}"
 
+
+@given('pen Amazon Customer Service Page')
+def open_customer_service_page(context):
+    context.driver.get("https://www.amazon.com/gp/help/customer/display.html")
