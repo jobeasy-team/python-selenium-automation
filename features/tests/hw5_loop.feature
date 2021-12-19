@@ -7,3 +7,6 @@ Feature: Amazon product search
   Then Verify user can click through colors
 
     # Enter steps here
+  Scenario: User can see item details on wholefood sales
+    Given Open Amazon wholefoodsdeals page
+    Then verify every product has a text Regular and product name
