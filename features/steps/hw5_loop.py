@@ -36,6 +36,6 @@ def verify_every_product_with_name_and_regular_label(context, target):
     for item in context.driver.find_elements(*sales_items):
         actual_text = item.find_element(*sales_itme_regular_text).text
         assert target in actual_text, f'Expected {target}, but it shows {actual_text}'
-        actual_name =  item.find_element(*product_name).text
+        actual_name = item.find_element(*product_name).text
         assert actual_name != "", f' Expected name, but shows nothing'
 
