@@ -8,19 +8,16 @@ from behave import given, when, then
 @given('Open Amazon help page')
 def open_amazon_help(context):
     context.driver.get('https://www.amazon.com/gp/help/customer/display.html')
-    sleep(2)
 
 
 @when('Input {search_word} into search library')
 def input_search(context, search_word):
     context.driver.find_element(By.ID, 'helpsearch').send_keys('cancel order')
-    sleep(2)
 
 
 @when('Begin search')
 def enter_button(context):
     context.driver.find_element(By.ID, 'helpsearch').send_keys(Keys.RETURN)
-    sleep(3)
 
 
 @then('results for {search_word} are shown')

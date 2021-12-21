@@ -9,7 +9,6 @@ fivelinks=(By.CSS_SELECTOR, "#zg_header a")
 @when('Click on Bestsellers')
 def bestseller_click(context):
     context.driver.find_element(By.CSS_SELECTOR, "a.nav-a[href*='/gp/bestsellers/']").click()
-    sleep(2)
 
 
 @then('Verify {expected_count} links')
