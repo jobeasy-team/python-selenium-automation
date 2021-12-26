@@ -1,11 +1,12 @@
 from selenium import webdriver
-
+from selenium.webdriver.support.ui import WebDriverWait
 
 def browser_init(context):
     """
     :param context: Behave context
     """
     context.driver = webdriver.Chrome()
+    context.driver.wait = WebDriverWait(context.driver, 10)
     # context.browser = webdriver.Safari()
     # context.browser = webdriver.Firefox()
 
