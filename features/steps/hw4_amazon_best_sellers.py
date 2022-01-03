@@ -24,7 +24,7 @@ def links_display(context, number_links):
 
 @given('Open Amazon page')
 def open_amazon(context):
-    context.driver.get('https://www.amazon.com/')
+    context.app.main_page.open()
 
 
 @when('Search for {search_item}')
@@ -58,6 +58,6 @@ def verify_cart_item(context, number):
     assert int(cart_item_no) == int(number), f"error, real number is {cart_item_no}, not {number}"
 
 
-@given('pen Amazon Customer Service Page')
+@given('Open Amazon Customer Service Page')
 def open_customer_service_page(context):
     context.driver.get("https://www.amazon.com/gp/help/customer/display.html")
