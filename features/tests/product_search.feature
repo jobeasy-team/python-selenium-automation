@@ -3,6 +3,6 @@ Feature: Test Scenarios for Search functionality
 
   Scenario: User can search for a product
     Given Open Google page
-    When Input whey protein into search field
+    When Input creatine into search field
     And Click on search icon
-    Then Product results for whey protein are shown
+    Then Product results for creatine are shown
