@@ -1,0 +1,6 @@
+Amazon_logo = By.XPath, "//i[@class='a-icon a-icon-logo']"
+Continue_button = By.ID, "continue"
+Need_help_link = By.XPath, "//span[@class='a-expander-prompt']"
+Create_account_button = By.ID, "createAccountSubmit"
+Conditions_of_use_link = By.XPath, "//a[contains (@href, 'ap_signin_notification_condition_of_use')]"
+Privacy_notice_link = By.XPath, "//a[contains (@href, 'ap_signin_notification_privacy_notice')]"
