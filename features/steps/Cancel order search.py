@@ -10,9 +10,9 @@ search = driver.find_element(By.ID, 'helpsearch')
 search.clear()
 search.send_keys('Cancel order', Keys.ENTER)
 
-actual_text = driver.find_element(By.XPATH, "//div[@class='help-content]/h1").text
-expected_text = 'Cancel Itens or Orders'
+actual_text = driver.find_element(By.XPATH, "//div[contains(@class, 'help-cont')]/h1").text
+expected_text = 'Cancel Items or Orders'
 
-assert expected_text ==actual_text, f'Expected{expected_text} does not match {actual_text}'
+assert expected_text == actual_text, f'Expected{expected_text} does not match {actual_text}'
 
 driver.quit()
