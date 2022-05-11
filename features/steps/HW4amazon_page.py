@@ -8,29 +8,30 @@ def open_amazon(context):
     context.driver.get('https://www.amazon.com')
 
 
-@when('click cart icon')
-def customer_cart(context):
-    context.driver.find_element(By.XPATH,"//span[@class='nav-cart-icon nav-sprite']").click()
+@when('customer searches for marcy multi-purpose adjustable workout utility weight bench')
+def customer_search(context):
+    context.driver.find_element(By.ID,"twotabsearchtextbox").send_keys('marcy multi-purpose adjustable workout utility weight bench',Keys.ENTER)
 
 
-@then ('verify cart is empty')
-def cart_empty(context):
-    expected_result = "Your Amazon Cart is empty"
-    actual_result = context.driver.find_element(By.XPATH, "//div[@class='a-row sc-your-amazon-cart-is-empty']")
+@then ('lamp is added to cart')
+def lamp_add(context):
+    context.driver.find_element(By.XPATH,"//div[@data-component-type='s-impression-logger']//a[.//span[@class='a-price']]").click()
+    context.driver.find_element(By.ID, "add-to-cart-button").click()
 
 
-@when('select customer service')
-def customer_service(context):
-    context.driver.find_element(By.XPATH,"//a[@data-csa-c-content-id='nav_cs_customerservice']").click()
+@then ('verify cart has{expected_result} item added')
+def product_shown(context, expected_result):
+
+    actual_result = context.driver.find_element(By.ID, 'nav-cart-count').text
+    assert int(expected_result) == int(actual_result), f'expected {expected_result} got {actual_result}'
+    print ('Test Case Passed')
 
 
-@then ('verify user can cancel order')
-def cancel_order(context):
-    context.driver.find_element(By.ID, 'hubHelpSearchInput').send_keys('cancel order', Keys.ENTER)
-    sleep(4)
-    expected_result = 'Cancel Items or Orders'
-    actual_result = context.driver.find_element(By.XPATH, "//h1[text()='Cancel Items or Orders']").text
-    print ('Test case Passed')
+
+
+
+
+
 
 
 
