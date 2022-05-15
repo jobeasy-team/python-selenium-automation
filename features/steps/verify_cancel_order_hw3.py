@@ -10,3 +10,5 @@ def cancel_order(context, expected_rslt):
     sleep(5)
     actual_rslt = context.driver.find_element(*cncl_order)
     assert expected_rslt == actual_rslt, f'Error, Actual text {actual_rslt} does not match {expected_rslt}'
+
+

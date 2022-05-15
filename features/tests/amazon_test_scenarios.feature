@@ -10,3 +10,15 @@ Feature: Test scenarios for cart status
   Scenario: Verify links on BestSellers Page
     Given Open Amazon BestSellers Page
     Then Verify there are 5 link
+
+  Scenario: Verify that user can use the Customer Service Search bar
+    Given Open Amazon Customer Service Page
+    When Search for Cancel Order
+    Then Verify search results for Cancel Items or Orders
+
+  Scenario: Verify that user can add items to cart
+    Given Open Amazon Main page
+    When Search for ginkgo biloba tincture
+    Then Click on Amazon's Choice
+    Then Add item to cart
+    Then Verify Added to Cart
