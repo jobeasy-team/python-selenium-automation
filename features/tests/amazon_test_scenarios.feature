@@ -6,3 +6,7 @@ Feature: Test scenarios for cart status
     Given Open Amazon Main page
     When Click on the cart icon
     Then Verify Your Amazon Cart is empty
+
+  Scenario: Verify links on BestSellers Page
+    Given Open Amazon BestSellers Page
+    Then Verify there are 5 link
