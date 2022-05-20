@@ -1,7 +1,32 @@
+body {
+    background-image: url("./images/ch_wp.jpeg");
+    font-style: italic;
+}
+
 .float-image {
             float: left;
             margin-right: 20px;
             margin-bottom: 10px;
             border: solid black;
-            padding: 2px    ;
+            padding: 2px;
         }
+div#header {
+    background-color: #a7c4bb;
+    padding: 10px 8px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+div#learn {
+    text-align: center;
+    color: honeydew;
+}
+
+div.ingredients {
+    color: gold;
+}
+
+div.instructions {
+    color: gold;
+
+}
