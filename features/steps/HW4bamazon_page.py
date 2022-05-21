@@ -1,31 +1,32 @@
 from selenium.webdriver.common.by import By
 from behave import given, when, then
 from selenium.webdriver.common.keys import Keys
-from time import sleep
 
-@given('open amazon best seller page')
+
+
+COLOR_OPTIONS = (By.CSS_SELECTOR, "li[id*='color_name']")
+COLOR_NAME = (By.XPATH, "//span[@class='selection']")
+
+
+
+@given('Open Amazon product page')
 def open_amazon(context):
-    context.driver.get('https://www.amazon.com/gp/bestsellers/?ref_=nav_cs_bestsellers')
+    context.driver.get('https://www.amazon.com/gp/product/B07BJKRR25/')
 
 
-@when('Verify links are present')
-def customer_search(context):
-    context.driver.find_element(By.XPATH,"//a[@href='/Best-Sellers/zgbs/ref=zg_bs_tab']")
-    expected_result = 'Best Sellers'
-    actual_result = context.driver.find_element(By.XPATH, "//a[@href='/Best-Sellers/zgbs/ref=zg_bs_tab']").text
-    context.driver.find_element(By.XPATH, "//a[@href='/Best-Sellers/zgbs/ref=zg_bs_tab']")
-    expected_result = 'New Releases'
-    actual_result = context.driver.find_element(By.XPATH, "//a[@href='/Best-Sellers/zgbs/ref=zg_bs_tab']").text
-    context.driver.find_element(By.XPATH, "//a[@href='/gp/movers-and-shakers/ref=zg_bs_tab']")
-    expected_result = 'Movers & Shakers'
-    actual_result = context.driver.find_element(By.XPATH, "//a[@href='/gp/movers-and-shakers/ref=zg_bs_tab']").text
-    context.driver.find_element(By.XPATH, "//a[@href='/gp/most-wished-for/ref=zg_bs_tab']")
-    expected_result = 'Most Wished For'
-    actual_result = context.driver.find_element(By.XPATH, "//a[@href='/gp/most-wished-for/ref=zg_bs_tab']").text
-    context.driver.find_element(By.XPATH, "//a[@href='/gp/most-gifted/ref=zg_bs_tab']")
-    expected_result = 'Gift Ideas'
-    actual_result = context.driver.find_element(By.XPATH, "//a[@href='/gp/most-gifted/ref=zg_bs_tab']").text
+@then('Verify user can click through colors')
+def color_select(context):
+    expected_colours = ['Black','Blue,Over Dye','Bright White', 'Dark Blue Vintage']
+    actual_colors = []
+    color_options = context.driver.find_elements(*COLOR_OPTIONS)
+    for option in color_options:
+        option.click()
+        actual_colors = context.driver.find_elements(*COLOR_NAME)
+        assert actual_colors == expected_colours
     print ("Test Case Passed")
+
+
+
 
 
 
