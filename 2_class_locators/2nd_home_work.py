@@ -1,13 +1,15 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from time import sleep
 
 driver = webdriver.Chrome(
     executable_path="C:/ProgramData/Microsoft/Windows/Start Menu/Programs/JetBrains/chromedriver.exe")
 driver.get("https://www.amazon.com/gp/help/customer/display.html")
 
-ama = driver.find_element(By.XPATH, "//input[@type='search']")
 
+ama = driver.find_element(By.XPATH, "//input[@type='search']")
+sleep(2)
 ama.send_keys('cancel order', Keys.ENTER)
 
 expected_result = 'Cancel Items or Orders You can cancel items or orders that have not shipped by visiting the Order ' \
