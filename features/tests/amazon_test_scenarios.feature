@@ -22,3 +22,8 @@ Feature: Test scenarios for cart status
     Then Click on Amazon's Choice
     Then Add item to cart
     Then Verify Added to Cart
+
+    #lesson 5
+  Scenario: User can search colors
+    Given Open Amazon B07RGZ5NKS product page
+    Then Verify user can click through colors
