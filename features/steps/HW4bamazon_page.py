@@ -8,7 +8,6 @@ COLOR_OPTIONS = (By.CSS_SELECTOR, "li[id*='color_name']")
 COLOR_NAME = (By.XPATH, "//span[@class='selection']")
 
 
-
 @given('Open Amazon product page')
 def open_amazon(context):
     context.driver.get('https://www.amazon.com/gp/product/B07BJKRR25/')
