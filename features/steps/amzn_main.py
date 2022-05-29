@@ -2,6 +2,7 @@ from behave import given, when, then
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
+
 # I can come back and dlt this file or cstmr file after combining them later
 
 search = (By.ID, 'twotabsearchtextbox')
@@ -12,6 +13,12 @@ COLOR_OPT = (By.CSS_SELECTOR, 'ul[class*="imageSwa"] li[title*="Click to"]')
 @given('Open Amazon Main page')
 def cart_btn(context):
     context.driver.get("https://www.amazon.com/")
+
+
+@given('Open Amazon T&C page')
+def terms_page(context):
+    context.driver.get('https://www.amazon.com/gp/help/customer/display.html/ref'
+                       '=ap_register_notification_condition_of_use?ie=UTF8&nodeId=508088 ')
 
 
 # HW5
