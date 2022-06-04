@@ -1,4 +1,4 @@
-# Careerist Test Automation repository
+# Test Automation repository
 
 written in
-### Python 3, Behave
+# Python 3, Behave
