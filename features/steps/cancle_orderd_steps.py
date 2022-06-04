@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from time import sleep
 
 SEARCH_INPUT = (By.XPATH, "//input[@type='search']")
-SEARCH_BTN = (By.CSS_SELECTOR, "div.cs-help-container .a-box-inner .help-content")
+SEARCH_BTN = (By.CSS_SELECTOR, "div.a-box-inner .help-content")
 BB_SEARCH = (By.ID, 'twotabsearchtextbox')
 SUBMIT = (By.ID, 'nav-search-submit-button')
 F_ITEM = (By.XPATH, "//div[@data-component-type='s-impression-counter']//div[@class='a-price-whole']")
@@ -19,8 +19,8 @@ def open_product(context, product_id):
     context.driver.get(f"https://www.amazon.com/gp/product/B07X8XJRS9/?th=1/")
 
 
-@given('open {amazon} page')
-def open_amazon(context, amazon):
+@given('open {search_word}')
+def open_amazon(context, search_word):
     context.driver.get("https://www.amazon.com/")
 
 
@@ -32,8 +32,8 @@ def open_customer_service(context, search_word):
 
 @then('open{search_word}')
 def open_best_sellers_page(context, search_word):
-     context.driver.get("https://www.amazon.com/gp/bestsellers/")
-     sleep(1)
+     context.driver.get("https://www.amazon.com/Best-Sellers/zgbs/ref=zg_bs_tab")
+     sleep(3)
 
 
 @then('search for {search_word}')
@@ -43,9 +43,9 @@ def open_canceled_items(context, search_word):
     sleep(1)
 
 
-@then('verify the {canceled_item_or_order} page comes')
-def verify_canceled_page(context, canceled_item_or_order):
-    expected_result = context.driver.find_element(*SEARCH_BTN)
+@then('verify the {search_word} page comes')
+def verify_canceled_page(context, search_word):
+    expected_result = context.driver.get("https://www.amazon.com/gp/help/customer/display.html?help_keywords=canceled+order&search")
     actual_result = context.driver.get("https://www.amazon.com/gp/help/customer/display.html?help_keywords=canceled+order&search")
 
     assert expected_result == actual_result, f'Error! Actual text {actual_result} does not match expected{expected_result}'
@@ -54,7 +54,8 @@ def verify_canceled_page(context, canceled_item_or_order):
 @then('verify there are {expected_amount} links')
 def verify_there_are_links(context, expected_amount):
     header_links = context.driver.find_elements(*BST_SELL)
-    assert len(header_links) == int(expected_amount), f'Expected {expected_amount} links, but got {len(header_links)}'
+    expected_amount = context.driver.find_elements(*BST_SELL)
+    assert len(header_links) == len(expected_amount), f'Expected {expected_amount} links, but got {len(header_links)}'
 
 
 @then('verify user can click through colors')

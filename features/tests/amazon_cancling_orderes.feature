@@ -11,10 +11,9 @@ Feature: test canceled orders
 
   Scenario: user can add a product to cart
     Given open amazon page
-    When Click on search icon
-    And search for basketball into search field
-    And click on the first result
-    And click on add to cart button
+    When input "basketball" into search,taps Enter
+    Then click on the first price
+    Then click to add to cart
     And Open cart page
     Then verify cart has 1 item(s)
 
