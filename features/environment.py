@@ -1,18 +1,20 @@
 from selenium import webdriver
-
-
+from app.application import Application
+from selenium.webdriver.support.wait import WebDriverWait
 
 
 def browser_init(context):
     """
     :param context: Behave context
     """
-    context.driver = webdriver.Chrome(executable_path='/Users/Adewale/OneDrive/Desktop/Automation Course/python-selenium-automation/chromedriver')
+    context.driver = webdriver.Chrome(executable_path='/Users/Adewale/OneDrive/Desktop/Automation Course/python-selenium-automation/chromedriver.exe')
     # context.browser = webdriver.Safari()
     # context.browser = webdriver.Firefox()
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(4)
+    context.app = Application(context.driver)
+
 
 
 def before_scenario(context, scenario):

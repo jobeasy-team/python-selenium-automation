@@ -7,8 +7,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 
-driver = webdriver.Chrome(executable_path='/Users/Adewale/OneDrive/Desktop/Automation Course/python-selenium-automation/chromedriver')
-driver.wait = WebDriverWait(driver, 10)
+#driver = webdriver.Chrome(executable_path='/Users/Adewale/OneDrive/Desktop/Automation Course/python-selenium-automation/chromedriver')
+#driver.wait = WebDriverWait(driver, 10)
 
 @given('Open Amazon T&C page')
 def open_amazon_privacy_page(context):
