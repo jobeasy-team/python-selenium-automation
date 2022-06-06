@@ -6,6 +6,7 @@ class MainPage(Page):
 
     def open_main_page(self):
         self.open_page()
+        self.open_product_page()
 
 
 
