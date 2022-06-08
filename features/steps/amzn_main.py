@@ -2,17 +2,17 @@ from behave import given, when, then
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
-
 # I can come back and dlt this file or cstmr file after combining them later
 
 search = (By.ID, 'twotabsearchtextbox')
 cart_icon = (By.CSS_SELECTOR, 'div#nav-cart-count-container span.nav-cart-count.nav-cart-0')
 COLOR_OPT = (By.CSS_SELECTOR, 'ul[class*="imageSwa"] li[title*="Click to"]')
+retOrders_btn = (By.CSS_SELECTOR, 'a[href*="order-history"]')
 
 
 @given('Open Amazon Main page')
-def cart_btn(context):
-    context.driver.get("https://www.amazon.com/")
+def open_amzn(context):
+    context.app.main_page.open_main_pg()
 
 
 @given('Open Amazon T&C page')
@@ -29,5 +29,12 @@ def product_page(context, prod_id):
 
 @when('Click on the cart icon')
 def cart_click(context):
-    context.driver.find_element(*cart_icon).click()
+    context.app.header.cart_btn()
+    '''context.driver.find_element(*cart_icon).click()
     context.driver.wait.until(EC.visibility_of_element_located(cart_icon))
+'''
+
+
+@when('Click Amazon Orders link')
+def orders_click(context):
+    context.app.header.orders_btn()
