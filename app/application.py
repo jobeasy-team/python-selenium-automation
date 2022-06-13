@@ -16,6 +16,8 @@ class Application:
         self.search_results_page = SearchResultsPage(self.driver)
         self.sign_in_page = SignInPage(self.driver)
         self.cart_page = Cart(self.driver)
+
+
 # a variable can be created iot access all methods within the classes
 # open enviornment.py and create a context variable for Application class
 # a = Application()

@@ -38,3 +38,14 @@ def cart_click(context):
 @when('Click Amazon Orders link')
 def orders_click(context):
     context.app.header.orders_btn()
+
+
+# HW8
+@when('Select books department')
+def select_dept(context):
+    context.app.header.select_dept()
+
+
+@then('Verify {dept} department is selected')
+def correct_dept(context, dept):
+    context.app.header.verify_dept()

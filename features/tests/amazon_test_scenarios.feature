@@ -59,4 +59,15 @@ Feature: Test scenarios for cart status
     When Click on the cart icon
     Then Verify Your Amazon Cart is empty text is present
 
+    #Lesson 8
+  Scenario: Select a new department and search for an item
+    Given Open Amazon Main page
+    When Select books department
+    And Search for a Art of the Adept product
+    Then Verify Books department is selected
 
+
+  Scenario: Verify user can see deals in the clothing dept. New Arrivals
+    Given Open Amazon B074TBCSC8 product page
+    When Hovering over New Arrivals
+    Then Verify New Arrivals deals are visible
