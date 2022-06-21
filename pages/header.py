@@ -20,7 +20,7 @@ class Header(Page):
     WOMEN_DEALS = (By.CSS_SELECTOR, '[src*="W."]')
 
     def search_amazon(self, search_word):
-        self.input_text(search_word, *self.SEARCH_INPUT)  # use self to ref class.
+        self.input_text(search_word, *self.SEARCH_INPUT)
         self.click(*self.SEARCH_BTN)
 
     def orders_btn(self):

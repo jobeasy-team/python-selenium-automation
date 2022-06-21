@@ -1,5 +1,6 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from Support.logger import logger
 
 
 class Page:
@@ -10,13 +11,18 @@ class Page:
         self.base_url = 'https://www.amazon.com'
 
     def click(self, *locator):
+        logger.info(f'Clicking on {locator}')
         self.driver.find_element(*locator).click()
 
-    def open_page(self, url):
-        self.driver.get(url)
+    def open_page(self, end_url=''):
+        logger.info(f'{self.base_url}{end_url}')
+        self.driver.get(f'{self.base_url}{end_url}')
 
     def input_text(self, text, *locator):
-        self.driver.find_element(*locator).send_keys(text)
+        e = self.driver.find_element(*locator)
+        e.clear()
+        logger.info(f'Inputting {text}')
+        e.send_keys(text)
 
     def verify_partial_text(self, expected_text, *locator):
         actual_text = self.driver.find_element(*locator).text
