@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
 # init driver
-driver = webdriver.Chrome()
+driver = webdriver.Chrome(r'C:\Users\ababa\Desktop\QA Automation\PythonSeleniumAutomation\python-selenium-automation\chromedriver.exe')
 driver.maximize_window()
 # driver.implicitly_wait(4)  # 100 ms
 driver.wait = WebDriverWait(driver, 10)  # 500 ms
