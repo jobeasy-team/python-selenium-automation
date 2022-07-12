@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 #initialize driver:
-driver = webdriver.Chrome(executable_path="C:\\Users\\ababa\\Desktop\\QA Automation\\PythonSeleniumAutomation\\python-selenium-automation\\chromedriver.exe")
+driver = webdriver.Chrome(r"C:\\Users\\ababa\\Desktop\\QA Automation\\PythonSeleniumAutomation\\python-selenium-automation\\chromedriver.exe")
 #
 #Maximize chrome window
 driver.maximize_window()
