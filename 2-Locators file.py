@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-driver = webdriver.Chrome(executable_path="C:\\Users\\ababa\\Desktop\\QA Automation\\PythonSeleniumAutomation\\python-selenium-automation\\chromedriver.exe")
+driver = webdriver.Chrome(executable_path=r'C:\\Users\\ababa\\Desktop\\QA Automation\\PythonSeleniumAutomation\\python-selenium-automation\\chromedriver.exe')
 
 
 #AMAZON LOCATORS
@@ -45,8 +45,4 @@ driver.find_element(By.XPATH, "//a[contains(@href,'footer_cou')]")
 #9.*Privacy Notice link
 driver.find_element(By.XPATH, "//a[contains(@href,'footer_privacy')]")
 
-
-
-
-
-
+#######

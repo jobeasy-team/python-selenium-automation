@@ -7,9 +7,3 @@ Feature: Navigation in Amazon
     When User clicks on Orders
     Then User sees Sign In page
     And email input is visible
-
-
-
-
-
-
