@@ -25,6 +25,9 @@ def sign_in(context):
 def email_input(context):
     context.driver.find_element(By.XPATH, "//input[@name='email']").click()
 
+#OR
+# assert driver.find_element(By.ID, 'ap_email').is_displayed()
+
 
 print('Test Case Passed.')
 
