@@ -15,7 +15,7 @@ def click_returns_and_orders(context):
 
 
 @then('User sees Sign-In page')
-def sign_in(context):
+def verify_sign_in_opened(context):
     expected_result = "Sign-In"
     actual_result = context.driver.find_element(By.CSS_SELECTOR, 'h1.a-spacing-small').text
     assert expected_result == actual_result,f'Expected {expected_result} but turned {actual_result}'
