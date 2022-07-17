@@ -5,12 +5,12 @@ from behave import given, when, then
 
 
 @given('User opens Amazon page (No Sign In)')
-def open_Amazon_NoSignIn(context):
+def open_amazon_nosignin(context):
     context.driver.get('https://www.amazon.com')
 
 
 @when('User clicks on Returns & Orders')
-def click_Returns_and_Orders(context):
+def click_returns_and_orders(context):
     context.driver.find_element(By.CSS_SELECTOR, '#nav-orders').click()
 
 
