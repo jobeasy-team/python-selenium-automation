@@ -13,14 +13,12 @@ SIGN_IN_POPUP_BTN = (By.CSS_SELECTOR, '#nav-signin-tooltip span.nav-action-inner
 
 @given('Open Amazon page')
 def open_amazon(context):
-    context.driver.get('https://www.amazon.com/')
+    context.app.main_page.open_main()
 
 
 @when('Search for {search_word} on amazon')
 def search_product(context, search_word):
-    context.driver.find_element(*INPUT_FIELD).send_keys(search_word)
-    context.driver.find_element(*SEARCH_ICON).click()
-    sleep(1)
+    context.app.header.search_product(search_word)
 
 
 @when('Click Orders')
@@ -43,7 +41,7 @@ def sleep_sec(context, sec):
 @then('Verify Sign In is clickable')
 def verify_sign_in_btn_clickable(context):
     context.driver.wait.until(
-        EC.element_to_be_clickable(SIGN_IN_POPUP_BTN), message='SignIn not clickable'
+        EC.presence_of_element_located(SIGN_IN_POPUP_BTN), message='SignIn not clickable'
     )
 
 
