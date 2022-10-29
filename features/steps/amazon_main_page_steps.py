@@ -25,6 +25,46 @@ def click_sign_in(context):
     e.click()
 
 
+@when('Wait for {sec} sec')
+def wait_sec(context, sec):
+    sleep(int(sec))
+
+
+@when('Click Orders')
+def click_orders(context):
+    context.app.main_page.click_returns_and_orders_btn()
+
+
+@when('Hover over language options')
+def hover_lang(context):
+    context.app.main_page.hover_lang()
+
+
+@when('Select department by value {selection_value}')
+def select_department(context, selection_value):
+    context.app.main_page.select_department(selection_value)
+
+
+@then('Verify {department} department is selected')
+def verify_department(context, department):
+    context.app.search_results_page.verify_department(department)
+
+
+@then('Verify Spanish option present')
+def verify_lang(context):
+    context.app.main_page.verify_lang()
+
+
+@then('Verify Sign In is clickable')
+def verify_sign_in_clickable(context):
+    context.driver.wait.until(EC.element_to_be_clickable(SIGN_IN), message='Sign in not clickable')
+
+
+@then('Verify Sign In disappears')
+def verify_sign_in_btn_disappear(context):
+    context.driver.wait.until(EC.invisibility_of_element_located(SIGN_IN), message='Sign in is still visible')
+
+
 @then('Verify hamburger menu is present')
 def verify_ham_menu_present(context):
     context.driver.find_element(*HAM_MENU)

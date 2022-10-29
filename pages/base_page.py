@@ -30,7 +30,7 @@ class Page:
         print(f'Inputting text: {text}')
 
     def wait_for_element_click(self, *locator):
-        e = self.wait.until(EC.element_to_be_clickable(locator))
+        e = self.wait.until(EC.element_to_be_clickable(locator), message=f'Element not clickable by {locator}')
         e.click()
 
     def wait_for_element_disappear(self, *locator):
@@ -41,12 +41,13 @@ class Page:
 
     def verify_element_text(self, expected_text, *locator):
         actual_text = self.driver.find_element(*locator).text
-        assert expected_text == actual_text, f'Expected {expected_text}, but got {actual_text}'
+        assert expected_text == actual_text, \
+            f'Checking by locator {locator}. Expected {expected_text}, but got {actual_text}'
 
     def verify_partial_text(self, expected_text, *locator):
         actual_text = self.driver.find_element(*locator).text
         assert expected_text in actual_text, \
-            f'Expected text {expected_text} is not in {actual_text}'
+            f'Checking by locator {locator}. Expected text {expected_text} is not in {actual_text}'
 
     def verify_url_contains_query(self, query):
         self.wait.until(EC.url_contains(query))
