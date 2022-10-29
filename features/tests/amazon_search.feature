@@ -5,7 +5,7 @@ Feature: Tests for amazon search
     Given Open amazon page
     When Search for coffee
     Then Search results for "coffee" are shown
-#
+
 #  Scenario: User can search for mug
 #    Given Open amazon page
 #    When Search for mug
@@ -20,7 +20,7 @@ Feature: Tests for amazon search
      |coffee                                  |"coffee"                                  |
      |mug                                     |"mug"                                     |
      |dress                                   |"dress"                                   |
-     |Tritan Farm to Table Pitcher on amazon  |"Tritan Farm to Table Pitcher on amazon"  |
+     |Tritan Farm to Table Pitcher on amazon  |"Tritan Farm to Table Pitcher"  |
 
    Scenario: User can add a product to the cart
     Given Open Amazon page
@@ -31,3 +31,18 @@ Feature: Tests for amazon search
     And Open cart page
     Then Verify cart has 1 item(s)
     And Verify cart has correct product
+
+  Scenario: Verify that user can see product names and images
+    Given Open Amazon page
+    When Search for coffee
+    Then Verify that every product has a name and an image
+
+  Scenario Outline: User can select and search in a department
+    Given Open Amazon page
+    When Select department by value <value>
+    And Search for Faust
+    Then Verify <department> department is selected
+    Examples:
+    |value        |department |
+    |stripbooks   |books      |
+    |audible      |audible    |
