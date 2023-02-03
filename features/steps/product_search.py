@@ -1,7 +1,7 @@
-from selenium.webdriver.common.by import By
-from behave import given, when, then
 from time import sleep
 
+from behave import given, when, then
+from selenium.webdriver.common.by import By
 
 SEARCH_INPUT = (By.NAME, 'q')
 SEARCH_SUBMIT = (By.NAME, 'btnK')
