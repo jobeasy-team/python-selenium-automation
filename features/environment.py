@@ -1,11 +1,13 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 
 
 def browser_init(context):
     """
     :param context: Behave context
     """
-    context.driver = webdriver.Chrome()
+    service = Service('/Users/svetlanalevinsohn/JobEasy/13-python-selenium-automation/chromedriver')
+    context.driver = webdriver.Chrome(service=service)
     # context.browser = webdriver.Safari()
     # context.browser = webdriver.Firefox()
 
@@ -28,5 +30,4 @@ def after_step(context, step):
 
 
 def after_scenario(context, feature):
-    context.driver.delete_all_cookies()
     context.driver.quit()
