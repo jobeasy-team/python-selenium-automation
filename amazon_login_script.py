@@ -16,7 +16,7 @@ driver.find_element(By.XPATH, "//h1[contains(text(), 'Sign in')]").is_displayed(
 # to check multiple things
 # expected_result1 = '"Sign in is Displayed"'
 # actual_result1 = driver.find_element(By.XPATH, "//h1[contains(text(), 'Sign in')]").is_displayed()
-expected_result2 = 'input'
+expected = 'input'
 actual_result2 = driver.find_element(By.ID,  'ap_email')
 
 print(actual_result2)
