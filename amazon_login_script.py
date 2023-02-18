@@ -14,15 +14,13 @@ driver.find_element(By.XPATH, "//h1[contains(text(), 'Sign in')]").is_displayed(
 
 # Not sure what I'm doing wrong but I'm not sure I understand what to put in expected_result or how to handle needing
 # to check multiple things
-# expected_result1 = '"Sign in is Displayed"'
-# actual_result1 = driver.find_element(By.XPATH, "//h1[contains(text(), 'Sign in')]").is_displayed()
+expected_text = 'Sign in'
+actual_text = driver.find_element(By.XPATH, "//h1[@class='a-spacing-small']").text
 expected = 'input'
-actual_result2 = driver.find_element(By.ID,  'ap_email')
+assert driver.find_element(By.ID, 'ap_email').is_displayed(), 'Email field not shown'
 
-print(actual_result2)
-
-# assert expected_result1 == actual_result1, f'Expected {expected_result1} but got actual {actual_result1}'
-assert expected_result2 == actual_result2, f'Expected {expected_result2} but got actual {actual_result2}'
+assert actual_text == expected_text, f'Expected {expected_text} but got {actual_text}'
 print('Test case passed')
 
 driver.quit()
+

@@ -7,9 +7,12 @@ def open_amazon(context):
     context.driver.get('https://www.amazon.com/')
 
 
-@when('Input text {search_word}')
-def input_search_word(context, search_word):
-    context.driver.find_element(By.ID, 'twotabsearchtextbox').send_keys(search_word)
+@when('Search for {product}')
+def search_product(context, product):
+    element = context.driver.find_element(By.ID, 'twotabsearchtextbox')
+    element.clear()
+    element.send_keys(product)
+    context.driver.find_element(By.ID, 'nav-search-submit-button').click()
 
 
 @when('Click on search button')
