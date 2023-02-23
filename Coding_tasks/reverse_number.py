@@ -1,4 +1,4 @@
-number = 12345
+number = 123456
 reversed_array = []
 
 while number != 0:
