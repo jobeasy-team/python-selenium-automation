@@ -1,6 +1,8 @@
 # Created by vsupe at 2/20/2023
-Feature: # Enter feature name here
-  # Enter feature description here
+Feature:  BestSeller's page
 
-  Scenario: # Enter scenario name here
-    # Enter steps here
+
+  Scenario: Count number of link in the BestSeller's page
+    Given Open amazon page
+    When click on Best Sellers tab
+    Then Verify the number of links are 5
