@@ -24,3 +24,7 @@ print('Test case passed')
 
 driver.quit()
 
+# 2. Update a test case to verify that logged out user sees Sign In when clicking on Returns and Orders to use Behave (BDD) (test case from Ex 2 of HW2)
+# 1. Open https://www.amazon.com
+# 2. Click Orders
+# 3. Verify Sign in page opened: Sign In header is visible, email input field is present.

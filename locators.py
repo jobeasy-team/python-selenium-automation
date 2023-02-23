@@ -1,6 +1,5 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
 
 driver = webdriver.Chrome(executable_path='/Users/jj/python-selenium-automation/chromedriver_mac_arm64')
 
