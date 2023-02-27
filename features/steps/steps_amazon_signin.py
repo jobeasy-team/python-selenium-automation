@@ -14,7 +14,7 @@ def click_search(context):
 
 @then('Verify that text {expected_result} is shown')
 def verify_search_result(context, expected_result):
-    actual_result = context.driver.find_element(By.CSS_SELECTOR, "h1.a-spacing-small").text
+    actual_result = context.driver.find_element(By.CSS_SELECTOR, "div.sc-cart-header").text
     assert expected_result == actual_result, f'Expected {expected_result} but got actual {actual_result}'
 
 

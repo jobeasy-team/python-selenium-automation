@@ -3,8 +3,8 @@ from behave import given, when, then
 from time import sleep
 
 
-SEARCH_INPUT = (By.NAME, 'q')
-SEARCH_SUBMIT = (By.NAME, 'btnK')
+SEARCH_INPUT = (By.CSS_SELECTOR, '#twotabsearchtextbox')
+SEARCH_SUBMIT = (By.CSS_SELECTOR, '#nav-search-submit-button')
 
 
 @given('Open Google page')
