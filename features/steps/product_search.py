@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 from behave import given, when, then
 from time import sleep
-
+from selenium.webdriver.support import expected_conditions as EC
 
 SEARCH_INPUT = (By.CSS_SELECTOR, '#twotabsearchtextbox')
 SEARCH_SUBMIT = (By.CSS_SELECTOR, '#nav-search-submit-button')
@@ -18,13 +18,13 @@ def input_search(context, search_word):
     search.clear()
     search.send_keys(search_word)
     sleep(4)
-
+    #context.driver.wait.until(EC.element_to_be_clickable())
 
 @when('Click on search icon')
 def click_search_icon(context):
     context.driver.find_element(*SEARCH_SUBMIT).click()
     sleep(1)
-
+    #context.driver.wait.until(EC.element_to_be_clickable(SEARCH_SUBMIT))
 
 @then('Product results for {search_word} are shown')
 def verify_found_results_text(context, search_word):
