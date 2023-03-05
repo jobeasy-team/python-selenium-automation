@@ -20,6 +20,3 @@ driver.find_element(By.XPATH, "//a[contains@href='https://www.amazon.com/ap/regi
 driver.find_element(By.XPATH, "//a[@href='/gp/help/customer/display.html/ref=ap_signin_notification_condition_of_use?ie=UTF8&nodeId=508088']")
 #Privacy Notice link
 driver.find_element(By.XPATH, "//a[@href='/gp/help/customer/display.html/ref=ap_signin_notification_privacy_notice?ie=UTF8&nodeId=468496']")
-
-
-
