@@ -16,8 +16,7 @@ def click_first_product(context):
 
 @then('Verify that text {expected_result} is shown')
 def verify_search_result(context, expected_result):
-    actual_result = context.driver.find_element(By.XPATH, "//span[@class='a-color-state a-text-bold']").text
-    assert expected_result == actual_result, f'Expected {expected_result} but got actual {actual_result}'
+    context.app.search_results_page.verify_search_result(expected_result)
 
 
 @then('Verify that every product has a name and an image')

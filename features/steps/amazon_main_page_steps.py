@@ -4,8 +4,8 @@ from behave import given, when, then
 from time import sleep
 
 
-AMAZON_SEARCH_FIELD = (By.ID, 'twotabsearchtextbox')
-SEARCH_ICON = (By.ID, 'nav-search-submit-button')
+# AMAZON_SEARCH_FIELD = (By.ID, 'twotabsearchtextbox')
+# SEARCH_ICON = (By.ID, 'nav-search-submit-button')
 HAM_MENU = (By.ID, 'nav-hamburger-menu')
 FOOTER_LINKS = (By.CSS_SELECTOR, "table.navFooterMoreOnAmazon td.navFooterDescItem")
 HEADER_LINKS = (By.CSS_SELECTOR, "#nav-xshop a.nav-a[data-csa-c-type='link']")
@@ -14,17 +14,20 @@ SIGN_IN_BTN = (By.CSS_SELECTOR, '#nav-signin-tooltip a.nav-action-button')
 
 @given('Open Amazon page')
 def open_amazon(context):
-    context.driver.get('https://www.amazon.com/')
+    # context.driver.get('https://www.amazon.com/')
+    context.app.main_page.open_main_url()
 
 
 @when('Input text {text}')
 def input_search_word(context, text):
-    context.driver.find_element(*AMAZON_SEARCH_FIELD).send_keys(text)
+    # context.driver.find_element(*AMAZON_SEARCH_FIELD).send_keys(text)
+    context.app.header.input_search_text(text)
 
 
 @when('Click on search button')
 def click_search(context):
-    context.driver.find_element(*SEARCH_ICON).click()
+    # context.driver.find_element(*SEARCH_ICON).click()
+    context.app.header.click_search()
 
 
 @when('Click Sign In from popup')
