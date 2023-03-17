@@ -4,8 +4,6 @@ from behave import given, when, then
 from time import sleep
 
 
-# AMAZON_SEARCH_FIELD = (By.ID, 'twotabsearchtextbox')
-# SEARCH_ICON = (By.ID, 'nav-search-submit-button')
 HAM_MENU = (By.ID, 'nav-hamburger-menu')
 FOOTER_LINKS = (By.CSS_SELECTOR, "table.navFooterMoreOnAmazon td.navFooterDescItem")
 HEADER_LINKS = (By.CSS_SELECTOR, "#nav-xshop a.nav-a[data-csa-c-type='link']")
@@ -43,6 +41,21 @@ def click_signin(context):
 @when('Wait for {sec} sec')
 def wait_for_sec(context, sec):
     sleep(int(sec))
+
+
+@when('Click Orders')
+def click_orders(context):
+    context.app.header.click_orders()
+
+
+@when('Hover over language options')
+def hover_lang_options(context):
+    context.app.header.hover_lang_options()
+
+
+@when('Select department by alias {alias}')
+def select_department(context, alias):
+    context.app.header.select_department(alias)
 
 
 @then('Verify Sign in popup shown')
@@ -95,3 +108,8 @@ def verify_header_link_count(context, expected_amount):
     expected_amount = int(expected_amount)
     header_links = context.driver.find_elements(*HEADER_LINKS)
     assert len(header_links) == expected_amount, f'Expected {expected_amount} links but got {len(header_links)}'
+
+
+@then('Verify Spanish option present')
+def verify_lang_shown(context):
+    context.app.header.verify_lang_shown()

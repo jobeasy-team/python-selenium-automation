@@ -48,3 +48,10 @@ Feature: Amazon search tests
     When Input text coffee
     When Click on search button
     Then Verify that every product has a name and an image
+
+  Scenario: User can select and search in a department
+    Given Open Amazon page
+    When Select department by alias audible
+    When Input text Faust
+    When Click on search button
+    Then Verify audible department is selected

@@ -33,3 +33,8 @@ def verify_products_name_img(context):
         product_tile = product.find_element(*PRODUCT_TITLE).text
         print(product_tile)
         assert product_tile, 'Product title is missing'
+
+
+@then('Verify {category} department is selected')
+def verify_selected_dept(context, category):
+    context.app.search_results_page.verify_selected_dept(category)
