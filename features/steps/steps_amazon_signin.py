@@ -12,9 +12,12 @@ def click_search(context):
     context.driver.find_element(By.XPATH, "//span[text()='& Orders']").click()
 
 
+
 @then('Verify that text {expected_result} is shown')
 def verify_search_result(context, expected_result):
     actual_result = context.driver.find_element(By.CSS_SELECTOR, "div.sc-cart-header").text
     assert expected_result == actual_result, f'Expected {expected_result} but got actual {actual_result}'
 
-
+@then('Verify Sign In page is opened')
+def verify_signin_opened(context):
+    context.app.sign_in_page.verify_signin_opened()
