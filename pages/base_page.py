@@ -1,3 +1,4 @@
+from support.logger import logger
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -25,7 +26,7 @@ class Page:
         e = self.driver.find_element(*locator)
         e.clear()
         e.send_keys(text)
-        print(f'Inputting text: {text}')
+        logger.info(f'Inputting text: {text}')
 
     def wait_for_element_click(self, *locator):
         e = self.wait.until(EC.element_to_be_clickable(locator), message=f'Element not clickable by {locator}')
