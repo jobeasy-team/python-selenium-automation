@@ -6,3 +6,4 @@ Feature: Test Scenarios for Search functionality
     When Input Watches into search field
     When Click on search icon
     Then Product results for Watches are shown
+
