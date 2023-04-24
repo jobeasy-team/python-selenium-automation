@@ -4,7 +4,12 @@ from selenium.webdriver.chrome.service import Service
 
 driver = webdriver.Chrome(executable_path='/Users/ekaterinasuvorova/Automation2023/python-selenium-automation/chromedriver')
 
-driver.get('https://www.amazon.com/')
-
+# By ID
 driver.find_element(By.ID, 'twotabsearchtextbox').send_keys('table')
-driver.find_element(By.ID, 'nav-search-submit-button').click()
+
+# By XPath,tag and attribute
+driver.find_element(By.XPATH, "//input[@placeholder='Search Amazon']")
+driver.find_element(By.XPATH, "//input[@aria-label='Search Amazon']")
+
+# By xpath, multiple attributes
+driver.find_element(By.XPATH, "//a[@aria-label='Amazon'and @href='/ref=nav_logo' ]")
