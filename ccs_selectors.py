@@ -7,21 +7,8 @@ from selenium.webdriver.chrome.service import Service
 service = Service('/Users/svetlanalevinsohn/JobEasy/13-python-selenium-automation/chromedriver')
 driver = webdriver.Chrome(service=service)
 
-# open the url
-driver.get('https://www.google.com/')
+# by ID
+driver.find_element(By.ID, 'twotabsearchtextbox')
 
-search = driver.find_element(By.NAME, 'q')
-search.clear()
-search.send_keys('Dress')
-
-# wait for 4 sec
-sleep(4)
-
-# click search
-driver.find_element(By.NAME, 'btnK').click()
-
-# verify
-assert 'dress' in driver.current_url.lower(), f"Expected query not in {driver.current_url.lower()}"
-print('Test Passed')
-
-driver.quit()
+# By CSS, using ID Syntax tag#ID but you can omit tag. instead of  'input#twotabsearchtextbox'use '#twotabsearchtextbox'
+driver.find_element(By.CSS_SELECTOR, '#twotabsearchtextbox')

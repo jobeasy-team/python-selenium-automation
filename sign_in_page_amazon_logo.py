@@ -7,19 +7,18 @@ from selenium.webdriver.chrome.service import Service
 service = Service('/Users/svetlanalevinsohn/JobEasy/13-python-selenium-automation/chromedriver')
 driver = webdriver.Chrome(service=service)
 
+# Test 'Verify Amazon logo is present on Sign In page'
 driver.get('https://www.amazon.com/')
+sleep(3)
+driver.find_element(By.ID, 'nav-link-accountList').click()
 
-sleep(5)
+#expected_result = True
+#actual_result = driver.find_element(By.XPATH, "//i[@aria-label='Amazon']").is_displayed()
+#assert actual_result == expected_result, 'Amazon logo not shown'
 
-driver.find_element(By.ID, 'twotabsearchtextbox').send_keys('table')
-driver.find_element(By.ID, 'nav-search-submit-button').click()
-
-expected_result = '"table"'
-actual_result = driver.find_element(By.XPATH, "//span[@class='a-color-state a-text-bold']").text
-print(actual_result)
-
-assert expected_result == actual_result, f'Expected {expected_result} but got actual {actual_result}'
-print('Test case passed')
+assert driver.find_element(By.XPATH, "//i[@aria-label='Amazon']").is_displayed(), 'Amazon logo not shown'
 
 driver.quit()
+
+
 
