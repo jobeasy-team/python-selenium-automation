@@ -3,9 +3,6 @@ from behave import given, when, then
 from time import sleep
 
 
-SEARCH_FIELD = (By.ID, 'search')
-SEARCH_BTN = (By.XPATH, "//button[@data-test='@web/Search/SearchButton']")
-CART_ICON = (By.CSS_SELECTOR, "[data-test='@web/CartLink']")
 HEADER_LINKS = (By.CSS_SELECTOR, "[data-test*='@web/GlobalHeader/UtilityHeader/']")
 LISTINGS = (By.CSS_SELECTOR, "[data-test='@web/site-top-of-funnel/ProductCardWrapper']")
 PRODUCT_TITLE = (By.CSS_SELECTOR, "[data-test='product-title']")
@@ -14,12 +11,12 @@ PRODUCT_IMG = (By.CSS_SELECTOR, 'img')
 
 @when('Search for {search_word}')
 def search_product(context, search_word):
-    context.app.header.search_product()
+    context.app.header.search_product(search_word)
 
 
 @when('Click on Cart icon')
 def click_cart(context):
-    context.driver.find_element(*CART_ICON).click()
+    context.app.header.click_cart()
 
 
 @then('Verify header has {number} links')
