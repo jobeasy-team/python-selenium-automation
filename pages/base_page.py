@@ -25,6 +25,26 @@ class Page:
     def input_text(self, text, *locator):
         self.driver.find_element(*locator).send_keys(text)
 
+    def get_current_window(self):
+        return self.driver.current_window_handle
+
+    def switch_to_new_window(self):
+        self.wait.until(EC.new_window_is_opened)
+        all_windows = self.driver.window_handles
+        print('All windows before switching:', all_windows)
+        self.driver.switch_to.window(all_windows[1])
+        print('Window after switch', self.get_current_window())
+
+    def switch_to_window_by_id(self, window_id):
+        self.driver.switch_to.window(window_id)
+        print('Window after switch', self.get_current_window())
+
+    def refresh_page(self):
+        self.driver.refresh()
+
+    def close(self):
+        self.driver.close()
+
     def wait_until_clickable(self, *locator):
         element = self.wait.until(
             EC.element_to_be_clickable(locator),
