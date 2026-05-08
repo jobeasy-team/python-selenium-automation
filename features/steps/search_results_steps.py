@@ -38,6 +38,16 @@ def side_nav_click_add_to_cart(context):
     )
 
 
+@when('Hover favorites icon')
+def hover_fav_icon(context):
+    context.app.search_results_page.hover_fav_icon()
+
+
+@then('Favorites tooltip is shown')
+def verify_fav_tooltip(context):
+    context.app.search_results_page.verify_fav_tooltip()
+
+
 @then("Verify search results for {product} shown")
 def verify_search_results(context, product):
     # actual_result = context.driver.find_element(*SEARCH_RESULT_COUNT_TEXT).text

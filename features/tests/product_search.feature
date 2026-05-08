@@ -20,11 +20,14 @@ Feature: Test cases for Product Search on Target
     |Coffee         |Coffee       |
     |coffee cup     |coffee cup   |
     |sugar          |sugar        |
-#    |茶             |茶           |
 
   Scenario: Verify that user can see product names and images
     Given Open Target main page
     When Search for AirPods
     Then Verify that every product has a name and an image
 
-
+  Scenario: User can see favorites tooltip for search results
+    Given Open Target main page
+    When Search for tea
+    And Hover favorites icon
+    Then Favorites tooltip is shown
