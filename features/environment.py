@@ -3,6 +3,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.wait import WebDriverWait
 
 from app.application import Application
+from support.logger import logger
 
 def browser_init(context, scenario_name):
     """
@@ -44,6 +45,7 @@ def browser_init(context, scenario_name):
 
 def before_scenario(context, scenario):
     print('\nStarted scenario: ', scenario.name)
+    logger.info(f'Started scenario: {scenario.name}')
     browser_init(context, scenario.name)
 
 

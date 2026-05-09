@@ -1,5 +1,6 @@
 Feature: Test cases for Product Search on Target
 
+  @smoke
   Scenario: User can search for a product "tea" on Target
     Given Open Target main page
     When Search for tea
@@ -21,6 +22,7 @@ Feature: Test cases for Product Search on Target
     |coffee cup     |coffee cup   |
     |sugar          |sugar        |
 
+  @smoke
   Scenario: Verify that user can see product names and images
     Given Open Target main page
     When Search for AirPods

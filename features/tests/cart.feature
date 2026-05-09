@@ -1,11 +1,13 @@
 Feature: Cart test cases
 
+  @P1
   Scenario: 'Your cart is empty' message is shown for empty cart
     Given Open Target main page
     When Click on Cart icon
     Then Verify 'Your cart is empty' message is shown
 
- Scenario: User can add a product to cart
+  @smoke @P0 @chrome_only
+  Scenario: User can add a product to cart
     Given Open Target main page
     When Search for mug
     And Click on Add to Cart button
