@@ -13,7 +13,7 @@ UTILITY_HEADER_LINKS = (By.CSS_SELECTOR, "a[data-test*='@web/GlobalHeader/Utilit
 def search_product(context, product):
     context.driver.find_element(*SEARCH_FIELD).send_keys(product)
     context.driver.find_element(*SEARCH_BTN).click()
-    sleep(7)
+    sleep(10)
 
 
 @when('Click on cart icon')
