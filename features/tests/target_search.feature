@@ -24,3 +24,8 @@ Feature: Test cases for Target Search
     |coffee   |coffee             |
     |tea      |tea                |
     |mug      |mug                |
+
+  Scenario: Verify that user can see product names and images
+    Given Open main target page
+    When Search for AirPods
+    Then Verify that every product has a name and an image
