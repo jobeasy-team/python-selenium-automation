@@ -1,8 +1,6 @@
 from selenium.webdriver.common.by import By
 from behave import given, when, then
 
-
-CART_ICON = (By.CSS_SELECTOR, "a[data-test='@web/CartLink']")
 UTILITY_HEADER_WRAPPER = (By.CSS_SELECTOR, "[class*='utilityHeaderWrapper']")
 UTILITY_HEADER_LINKS = (By.CSS_SELECTOR, "a[data-test*='@web/GlobalHeader/UtilityHeader']")
 LISTINGS = (By.CSS_SELECTOR, "[data-test='@web/site-top-of-funnel/ProductCardWrapper']")
@@ -17,12 +15,17 @@ def search_product(context, product):
 
 @when('Click on cart icon')
 def click_cart(context):
-    context.driver.find_element(*CART_ICON).click()
+    context.app.header.click_cart_icon()
 
 
 @then('Verify Navigation Utility Header is shown')
 def verify_utility_header(context):
-    context.driver.find_element(*UTILITY_HEADER_WRAPPER)
+    header_element = context.driver.find_element(*UTILITY_HEADER_WRAPPER)
+    print(header_element)
+    # context.driver.refresh()
+    # header_element = context.driver.find_element(*UTILITY_HEADER_WRAPPER)
+    # print(header_element)
+    # header_element.click()
 
 
 @then('Verify {expected_amount} Navigation Utility Header links are shown')

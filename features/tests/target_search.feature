@@ -4,6 +4,7 @@ Feature: Test cases for Target Search
     Given Open main target page
     When Search for tea
     Then Verify search results are shown for tea
+    Then Verify searchTerm=tea is in the URL
 
 #  Scenario: User can search for a mug
 #    Given Open main target page

@@ -6,5 +6,7 @@ class SearchResultsPage(Page):
     RESULTS_COUNT_TXT = (By.CSS_SELECTOR, "[data-test='lp-resultsCount']")
 
     def verify_search_result_shown(self, expected_product):
-        actual_text = self.get_element_text(*self.RESULTS_COUNT_TXT)
-        assert expected_product in actual_text, f'Expected text {expected_product} not in actual {actual_text}'
+        self.verify_partial_element_text(expected_product, *self.RESULTS_COUNT_TXT)
+
+    def verify_search_results_url(self, expected_partial_url):
+        self.verify_partial_url(expected_partial_url)

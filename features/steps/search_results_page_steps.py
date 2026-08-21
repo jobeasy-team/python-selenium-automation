@@ -42,3 +42,8 @@ def verify_search_result_shown(context, expected_product):
     # actual_text = context.driver.find_element(*RESULTS_COUNT_TXT).text
     # assert expected_product in actual_text, f'Expected text {expected_product} not in actual {actual_text}'
     context.app.search_results_page.verify_search_result_shown(expected_product)
+
+
+@then('Verify {expected_partial_url} is in the URL')
+def verify_search_results_url(context, expected_partial_url):
+    context.app.search_results_page.verify_search_results_url(expected_partial_url)
