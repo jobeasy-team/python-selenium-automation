@@ -11,7 +11,7 @@ class Header(Page):
     def search_product(self, product):
         self.input_text(product, *self.SEARCH_FIELD)
         self.click(*self.SEARCH_BTN)
-        sleep(10)
+        sleep(5)
 
     def click_cart_icon(self):
         # self.click(*self.CART_ICON)

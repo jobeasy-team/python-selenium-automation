@@ -28,6 +28,25 @@ class Page:
     def get_element_text(self, *locator):
         return self.driver.find_element(*locator).text
 
+    def get_current_window_handle(self):
+        current_window = self.driver.current_window_handle
+        print('Current window', current_window)
+        return current_window
+
+    def switch_to_new_window(self):
+        self.driver.wait.until(EC.new_window_is_opened)
+        print('All windows before switching', self.driver.window_handles)
+        new_window = self.driver.window_handles[1]
+        print('Switching to window', new_window)
+        self.driver.switch_to.window(new_window)
+
+    def switch_to_window_by_window_id(self, window_id):
+        print('Switching to window', window_id)
+        self.driver.switch_to.window(window_id)
+
+    def close(self):
+        self.driver.close()
+
     def wait_element_visible(self, *locator):
         return self.wait.until(
             EC.visibility_of_element_located(locator),
