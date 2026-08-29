@@ -1,5 +1,6 @@
 Feature: Test cases for Target Search
 
+  @smoke
   Scenario: User can search for tea
     Given Open main target page
     When Search for tea
@@ -30,3 +31,9 @@ Feature: Test cases for Target Search
     Given Open main target page
     When Search for AirPods
     Then Verify that every product has a name and an image
+
+#  Scenario: User can see favorites tooltip for search results
+#    Given Open main target page
+#    When Search for tea
+#    And Hover favorites icon
+#    Then Favorites tooltip is shown

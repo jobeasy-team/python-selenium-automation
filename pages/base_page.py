@@ -1,8 +1,14 @@
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import ElementClickInterceptedException
 
+from support.logger import logger
 
 class Page:
+    OVERLAY = (By.CSS_SELECTOR, "[class*='styles_overlay']")
+
     def __init__(self, driver):
         self.driver = driver
         self.wait = WebDriverWait(self.driver, timeout=10)
@@ -10,17 +16,46 @@ class Page:
 
     def open_url(self, end_url=''):
         url = f'{self.base_url}{end_url}'
-        print('Opening page: ', url)
+        logger.info(f'Opening page: {url}')
         self.driver.get(url)
+        self.dismiss_overlay()
+
+    def dismiss_overlay(self):
+        overlays = self.driver.find_elements(*self.OVERLAY)
+        if not overlays:
+            return
+
+        logger.info('Overlay detected, attempting to dismiss')
+        self.driver.find_element(By.TAG_NAME, 'body').send_keys(Keys.ESCAPE)
+
+        try:
+            WebDriverWait(self.driver, 2).until(
+                EC.invisibility_of_element_located(self.OVERLAY)
+            )
+            return
+        except Exception:
+            pass
+
+        self.driver.execute_script(
+            'document.querySelectorAll("[class*=\\"styles_overlay\\"]").forEach(el => el.remove());'
+        )
+        logger.info('Removed overlay via JavaScript')
 
     def find_element(self, *locator):
+        logger.info(f'Searching for element by {locator}')
         return self.driver.find_element(*locator)
 
     def find_elements(self, *locator):
+        logger.info(f'Searching for elements by {locator}')
         return self.driver.find_elements(*locator)
 
     def click(self, *locator):
-        self.driver.find_element(*locator).click()
+        logger.info(f'Clicking on element by {locator}')
+        try:
+            self.driver.find_element(*locator).click()
+        except ElementClickInterceptedException:
+            self.dismiss_overlay()
+            self.wait_element_clickable_click(*locator)
 
     def input_text(self, text, *locator):
         self.driver.find_element(*locator).send_keys(text)
@@ -30,7 +65,8 @@ class Page:
 
     def get_current_window_handle(self):
         current_window = self.driver.current_window_handle
-        print('Current window', current_window)
+        # print('Current window', current_window)
+        logger.info(f'Current window: {current_window}')
         return current_window
 
     def switch_to_new_window(self):
